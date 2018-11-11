@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 458974}
   - component: {fileID: 11411726}
   - component: {fileID: 114524838312199296}
-  - component: {fileID: 114766386691182642}
+  - component: {fileID: 114690747370518272}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 402434}
   - component: {fileID: 11463128}
   - component: {fileID: 114587749825558626}
-  - component: {fileID: 114189787997431348}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -117,9 +116,9 @@ GameObject:
   - component: {fileID: 413432}
   - component: {fileID: 2082592}
   - component: {fileID: 12409152}
-  - component: {fileID: 114358978138129748}
   - component: {fileID: 114170584506978732}
   - component: {fileID: 114709340726375864}
+  - component: {fileID: 114224465510217744}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -401,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 1
+  index: -1
   origin: {fileID: 0}
 --- !u!114 &11416958
 MonoBehaviour:
@@ -475,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: -1
   origin: {fileID: 0}
 --- !u!114 &11470538
 MonoBehaviour:
@@ -568,18 +567,7 @@ MonoBehaviour:
   Controllers:
   - {fileID: 11411726}
   - {fileID: 11463128}
---- !u!114 &114189787997431348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 173c6fda1c3009c479c70d531646248e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114358978138129748
+--- !u!114 &114224465510217744
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -629,6 +617,18 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
+--- !u!114 &114690747370518272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f756e020c735c43a71443bb97bd4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vrRig: {fileID: 420908}
 --- !u!114 &114709340726375864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -643,14 +643,3 @@ MonoBehaviour:
   BorderMaterial: {fileID: 0}
   BorderAlpha: 1
   _BorderHeight: 0.2
---- !u!114 &114766386691182642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 173c6fda1c3009c479c70d531646248e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

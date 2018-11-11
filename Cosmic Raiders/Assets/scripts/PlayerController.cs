@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using System;
 
 public class PlayerController : MonoBehaviour {
     
@@ -26,9 +27,9 @@ public class PlayerController : MonoBehaviour {
         if( leftControllerDevice.GetPress(touchPad) )
         {
             print("LEFT CONTROLLER TOUCHED");
-            Vector2 leftControllerAxis = leftControllerDevice.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0);
-            transform.position += (transform.right * leftControllerAxis.x + transform.forward * leftControllerAxis.y) * Time.deltaTime;
+            Vector2 leftControllerAxis = leftControllerDevice.GetAxis(EVRButtonId.k_EButton_Axis0);
 
+            transform.position += (transform.right * leftControllerAxis.x + transform.forward * leftControllerAxis.y) * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
             
         }
@@ -37,4 +38,5 @@ public class PlayerController : MonoBehaviour {
             print("RIGHT CONTROLLER TOUCHED");
         }
     }
+    
 }
