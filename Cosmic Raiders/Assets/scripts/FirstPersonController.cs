@@ -5,7 +5,9 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour {
 
     public LayerMask groundLayers;
-    public float speed = 10.0f;
+    public float speed = 2.0f;
+    public float walkingSpeed = 2.0f;
+    public float runningSpeed = 4.0f;
     public float jumpHeight = 1f;
 
     private CapsuleCollider col;
@@ -35,12 +37,24 @@ public class FirstPersonController : MonoBehaviour {
         {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
-
-        if( Input.GetKeyDown("escape") )
+        
+        if( Input.GetKey(KeyCode.LeftShift) )
+        {
+            speed = runningSpeed;
+        }
+        if( Input.GetKeyUp(KeyCode.LeftShift) )
+        {
+            speed = walkingSpeed;
+        }
+        if( Input.GetKeyDown(KeyCode.Escape) )
         {
             Cursor.lockState = CursorLockMode.None;
         }
-	}
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 
     private bool IsGrounded()
     {
