@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if( leftControllerDevice.GetPress(touchPad) )
+        if( leftControllerDevice.GetTouchDown(touchPad) )
         {
             print("LEFT CONTROLLER TOUCHED");
             Vector2 leftControllerAxis = leftControllerDevice.GetAxis(EVRButtonId.k_EButton_Axis0);
