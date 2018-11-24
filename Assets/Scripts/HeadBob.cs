@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class HeadBob : MonoBehaviour {
 
-    public float bobbingSpeed = 0.12f;
     public float bobWalkingSpeed = 0.12f;
     public float bobRunningSpeed = 0.24f;
     public float bobbingAmount = 0.04f;
 
+    private float bobbingSpeed = 0.12f;
     private float midPoint;
     private float timer = 0.0f;
 
     void Start()
     {
         midPoint = transform.localPosition.y;
+        bobbingSpeed = bobWalkingSpeed;
     }
 
     void Update ()

@@ -5,17 +5,18 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour {
 
     public LayerMask groundLayers;
-    public float speed = 2.0f;
     public float walkingSpeed = 2.0f;
     public float runningSpeed = 4.0f;
     public float jumpHeight = 1f;
 
     private CapsuleCollider col;
     private Rigidbody rb;
+    private float speed = 2.0f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
+        speed = walkingSpeed;
         Cursor.lockState = CursorLockMode.Locked;
 
         rb = GetComponent<Rigidbody>();
@@ -25,12 +26,17 @@ public class FirstPersonController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        float forward = Input.GetAxis("Vertical") * speed;
-        float strafe = Input.GetAxis("Horizontal") * speed;
+        if( Input.GetKeyDown(KeyCode.Escape) ) {  Cursor.lockState = CursorLockMode.None;  }
+        if( Input.GetKeyDown(KeyCode.Mouse0) ) {  Cursor.lockState = CursorLockMode.Locked;  }
+        if( Input.GetKey(KeyCode.LeftShift) ) {  speed = runningSpeed;  }
+        if( Input.GetKeyUp(KeyCode.LeftShift) ) {  speed = walkingSpeed;  }
+        
+        float forward = Input.GetAxis("Vertical");
+        float strafe = Input.GetAxis("Horizontal");
 
-        forward *= Time.deltaTime;
-        strafe *= Time.deltaTime;
-
+        forward *= Time.deltaTime * speed;
+        strafe *= Time.deltaTime * speed;
+        
         transform.Translate(strafe, 0, forward);
 
         if( IsGrounded() && Input.GetKeyDown(KeyCode.Space) )
@@ -38,22 +44,6 @@ public class FirstPersonController : MonoBehaviour {
             rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
         
-        if( Input.GetKey(KeyCode.LeftShift) )
-        {
-            speed = runningSpeed;
-        }
-        if( Input.GetKeyUp(KeyCode.LeftShift) )
-        {
-            speed = walkingSpeed;
-        }
-        if( Input.GetKeyDown(KeyCode.Escape) )
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 
     private bool IsGrounded()
