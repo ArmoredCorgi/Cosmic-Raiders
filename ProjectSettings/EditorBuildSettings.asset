@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Raider's Hub.unity
+    guid: 82edf6e2907545247bad87711e2de61b
+  - enabled: 1
+    path: Assets/Scenes/Infiltration.unity
+    guid: b0a9a6303b7ca164dbe1a430e7bbbe9f
+  m_configObjects: {}
