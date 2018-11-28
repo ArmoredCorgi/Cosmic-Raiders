@@ -17,7 +17,7 @@ public class FirstPersonController : MonoBehaviour {
     Rigidbody rb;
     Camera fpsCam;
     float speed = 2.0f;
-    [SerializeField] float raycastRange = 100f;
+    [SerializeField] readonly float raycastRange = 2.0f;
 
     // Use this for initialization
     void Start ()
@@ -46,15 +46,16 @@ public class FirstPersonController : MonoBehaviour {
     {
         if( isPlayerActive )
         {
-            RaycastHit hit = (RaycastHit)FireRaycast();
-            if( Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.name == "Cam1Feed" && securityCamControllers[0] )
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange);
+            if ( isHit && Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.name == "Cam1Feed" && securityCamControllers[0] )
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 isPlayerActive = false;
                 securityCamControllers[0].isCamActive = true;
                 return;
             }
-            print(hit.transform.name);
+            if( isHit ) { print(hit.transform.name); }
 
             if (Input.GetKeyDown(KeyCode.Escape)) { Cursor.lockState = CursorLockMode.None; }
             if (Input.GetKeyDown(KeyCode.Mouse0)) { Cursor.lockState = CursorLockMode.Locked; }
@@ -73,19 +74,6 @@ public class FirstPersonController : MonoBehaviour {
             {
                 rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
-        }
-    }
-
-    RaycastHit? FireRaycast()
-    {
-        RaycastHit hit;
-        if( Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange) )
-        {
-            return hit;
-        }
-        else
-        {
-            return null;
         }
     }
 
