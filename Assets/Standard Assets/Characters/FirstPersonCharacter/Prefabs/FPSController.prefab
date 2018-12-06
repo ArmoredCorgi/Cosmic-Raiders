@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 14300000}
   - component: {fileID: 11400000}
+  - component: {fileID: 114643157256625570}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   m_Layer: 0
@@ -97,7 +98,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
-  m_TargetEye: 3
+  m_TargetEye: 0
   m_HDR: 0
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
@@ -233,11 +234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isActive: 0
   m_IsWalking: 0
   m_WalkSpeed: 3
   m_RunSpeed: 6
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
+  m_JumpSpeed: 4
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -410,7 +412,7 @@ GameObject:
   - component: {fileID: 222869508537549658}
   - component: {fileID: 114900371928164422}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Image_Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,6 +445,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2499e38584444546bbf18e58fb915e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114643157256625570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891067ad5e2b66341b5634677f6789fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerActive: 0
+  securityCamControllers: []
 --- !u!114 &114724096739728314
 MonoBehaviour:
   m_ObjectHideFlags: 1
