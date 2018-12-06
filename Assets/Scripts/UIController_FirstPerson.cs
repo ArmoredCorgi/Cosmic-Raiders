@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class UIController_FirstPerson : MonoBehaviour {
 
@@ -16,6 +17,6 @@ public class UIController_FirstPerson : MonoBehaviour {
 	
 	void Update ()
     {
-        reticle.SetActive(fpsController.isPlayerActive);
+        reticle.SetActive(fpsController.m_isActive);
 	}
 }

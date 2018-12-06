@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class SecurityCamController : MonoBehaviour {
 
@@ -52,7 +53,7 @@ public class SecurityCamController : MonoBehaviour {
             if( Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1) )
             {
                 isCamActive = false;
-                fpsController.isPlayerActive = true;
+                fpsController.m_isActive = true;
             }
         }
     }
