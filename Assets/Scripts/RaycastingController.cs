@@ -11,7 +11,7 @@ public class RaycastingController : MonoBehaviour {
     [SerializeField] List<SecurityCamController> securityCamControllers = new List<SecurityCamController>();
     [SerializeField] readonly float raycastRange = 2.0f;
 
-    GameObject[] InfiltrationGOArray;
+    GameObject[] SecurityCams;
     CapsuleCollider col;
     Rigidbody rb;
     Camera fpsCam;
@@ -21,19 +21,23 @@ public class RaycastingController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        InfiltrationGOArray = SceneManager.GetSceneByName("Infiltration").GetRootGameObjects();
+        if (!SceneManager.GetSceneByBuildIndex(1).isLoaded)
+        {
+            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        }
+
+        SceneManager.MergeScenes(SceneManager.GetSceneByBuildIndex(0), SceneManager.GetSceneByBuildIndex(1));
+
+        SecurityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
 
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         fpsController = GetComponent<FirstPersonController>();
         fpsCam = GetComponentInChildren<Camera>();
 
-        foreach( GameObject go in InfiltrationGOArray )
+        foreach( GameObject cam in SecurityCams )
         {
-            if( go.name == "SecurityCam" )
-            {
-                securityCamControllers.Add(go.GetComponent<SecurityCamController>());
-            }
+            securityCamControllers.Add(cam.GetComponent<SecurityCamController>());
         }
 
 	}
@@ -45,7 +49,10 @@ public class RaycastingController : MonoBehaviour {
         {
             RaycastHit hit;
             bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange);
-            if ( isHit && Input.GetKeyDown(KeyCode.Mouse0) && hit.transform.name == "Cam1Feed" && securityCamControllers[0] )
+            if ( isHit 
+                && Input.GetKeyDown(KeyCode.Mouse0) 
+                && hit.transform.name == "Cam1Feed" 
+                && securityCamControllers[0] )
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 fpsController.m_isActive = false;

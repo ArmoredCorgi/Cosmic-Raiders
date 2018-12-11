@@ -23,14 +23,11 @@ public class SecurityCamController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         isCamActive = false;
 
-        RaidersHubGOArray = SceneManager.GetSceneByName("Raider's Hub").GetRootGameObjects();
+        RaidersHubGOArray = GameObject.FindGameObjectsWithTag("Player");
 
         foreach ( GameObject go in RaidersHubGOArray )
         {
-            if( go.name == "First Person Player" )
-            {
-                fpsController = go.GetComponent<FirstPersonController>();
-            }
+            fpsController = go.GetComponent<FirstPersonController>();
         }
     }
 	
