@@ -21,19 +21,23 @@ public class RaycastingController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        if (!SceneManager.GetSceneByBuildIndex(1).isLoaded)
-        {
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        }
-
-        SceneManager.MergeScenes(SceneManager.GetSceneByBuildIndex(0), SceneManager.GetSceneByBuildIndex(1));
-
-        SecurityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
-
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
         fpsController = GetComponent<FirstPersonController>();
         fpsCam = GetComponentInChildren<Camera>();
+
+        //----THE FOLLOWING WAS MOVED TO RAIDERS HUB MANAGER.CS - IF THAT IS CAUSING PROBLEMS RESTORE THIS, OTHERWISE DELETE:
+
+        //if (!SceneManager.GetSceneByBuildIndex(1).isLoaded)
+        //{
+        //    SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        //}
+
+        //SceneManager.MergeScenes(SceneManager.GetSceneByBuildIndex(0), SceneManager.GetSceneByBuildIndex(1));
+
+        //----
+
+        SecurityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
 
         foreach( GameObject cam in SecurityCams )
         {
