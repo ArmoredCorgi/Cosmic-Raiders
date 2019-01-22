@@ -47,7 +47,7 @@ public class SecurityCamController : MonoBehaviour {
             hJoint.transform.rotation = Quaternion.AngleAxis(mouseLook.x, Vector3.up);
             vJoint.transform.rotation = Quaternion.Euler(-mouseLook.y, mouseLook.x - 90, 0);
 
-            if( Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Mouse1) )
+            if( Input.GetKeyDown(KeyCode.Mouse1) )
             {
                 isCamActive = false;
                 fpsController.m_isActive = true;

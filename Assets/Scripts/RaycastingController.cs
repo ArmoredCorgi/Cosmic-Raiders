@@ -55,12 +55,22 @@ public class RaycastingController : MonoBehaviour {
             bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange);
             if ( isHit 
                 && Input.GetKeyDown(KeyCode.Mouse0) 
-                && hit.transform.name == "Cam1Feed" 
+                && hit.transform.tag == "CamFeed" 
                 && securityCamControllers[0] )
             {
                 Cursor.lockState = CursorLockMode.Locked;
-                fpsController.m_isActive = false;
-                securityCamControllers[0].isCamActive = true;
+
+                string feedName = hit.transform.name;
+                char feedNumChar = feedName[feedName.Length - 1];
+
+                int feedNum = (int)char.GetNumericValue(feedNumChar);
+
+                if( feedNum <= securityCamControllers.Count )
+                {
+                    fpsController.m_isActive = false;
+                    securityCamControllers[feedNum - 1].isCamActive = true;
+                }
+
                 return;
             }
         }

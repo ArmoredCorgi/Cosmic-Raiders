@@ -349,17 +349,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: CamFeed4
       objectReference: {fileID: 0}
+    - target: {fileID: 1239389445059140, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
+      objectReference: {fileID: 0}
     - target: {fileID: 1873394134176650, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
       propertyPath: m_Name
       value: CamFeed3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1873394134176650, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
       objectReference: {fileID: 0}
     - target: {fileID: 1482966559940290, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
       propertyPath: m_Name
       value: CamFeed6
       objectReference: {fileID: 0}
+    - target: {fileID: 1482966559940290, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
+      objectReference: {fileID: 0}
     - target: {fileID: 1406050460408096, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
       propertyPath: m_Name
       value: CamFeed5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406050460408096, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
       objectReference: {fileID: 0}
     - target: {fileID: 4144158929596878, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,9 +443,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CamFeed2
       objectReference: {fileID: 0}
+    - target: {fileID: 1273895496002354, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
+      objectReference: {fileID: 0}
     - target: {fileID: 1733603759913804, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
       propertyPath: m_Name
       value: CamFeed1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733603759913804, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
+      propertyPath: m_TagString
+      value: CamFeed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b90f98fcd0dfe045b97b416f056df43, type: 3}
