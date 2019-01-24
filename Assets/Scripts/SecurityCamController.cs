@@ -41,11 +41,11 @@ public class SecurityCamController : MonoBehaviour {
             smoothV.x = Mathf.Lerp(smoothV.x, mouse.x, 1f / smoothing);
             smoothV.y = Mathf.Lerp(smoothV.y, mouse.y, 1f / smoothing);
             mouseLook += smoothV;
-            mouseLook.x = Mathf.Clamp(mouseLook.x, 0f, 90f);
+            mouseLook.x = Mathf.Clamp(mouseLook.x, -45f, 45f);
             mouseLook.y = Mathf.Clamp(mouseLook.y, -45f, 45f);
 
-            hJoint.transform.rotation = Quaternion.AngleAxis(mouseLook.x, Vector3.up);
-            vJoint.transform.rotation = Quaternion.Euler(-mouseLook.y, mouseLook.x - 90, 0);
+            hJoint.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, Vector3.up);
+            vJoint.transform.localRotation = Quaternion.Euler(-mouseLook.y, mouseLook.x - 90, 0);
 
             if( Input.GetKeyDown(KeyCode.Mouse1) )
             {
