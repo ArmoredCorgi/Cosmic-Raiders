@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class InfiltrationManager : MonoBehaviour {
     
-	void Awake ()
+	void Start ()
     {
+        //Combine the Raider's Hub and Infiltration scenes:
+        if (!SceneManager.GetSceneByName("Raider's Hub").isLoaded)
+        {
+            SceneManager.LoadScene("Raider's Hub", LoadSceneMode.Additive);
+            SceneManager.MergeScenes(SceneManager.GetSceneByName("Raider's Hub"), SceneManager.GetSceneByName("Infiltration"));
+        }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class RaidersHubManager : MonoBehaviour {
 
@@ -12,29 +11,35 @@ public class RaidersHubManager : MonoBehaviour {
 	void Start ()
     {
         //Combine the Raider's Hub and Infiltration scenes:
-        if (!SceneManager.GetSceneByBuildIndex(1).isLoaded)
+        if (!SceneManager.GetSceneByName("Infiltration").isLoaded)
         {
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            SceneManager.LoadScene("Infiltration", LoadSceneMode.Additive);
         }
 
-        SceneManager.MergeScenes(SceneManager.GetSceneByBuildIndex(0), SceneManager.GetSceneByBuildIndex(1));
+        //Delay added to allow for scene loading prior to set up:
+        Invoke("SecurityCamSetup", 0.5f);
+    }
+
+    private void SecurityCamSetup ()
+    {
+        var count = 1;
+
+        SceneManager.MergeScenes(SceneManager.GetSceneByName("Raider's Hub"), SceneManager.GetSceneByName("Infiltration"));
 
         //Get all security cameras in scene:
         securityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
 
         //Set all cameras to correct render texture feed:
-        var count = 1;
-
-        foreach ( GameObject securityCam in securityCams )
+        foreach (GameObject securityCam in securityCams)
         {
             var cam = securityCam.GetComponentInChildren<Camera>();
             var texture = new RenderTexture(1024, 1024, 16);
-            Material material = new Material( Shader.Find("Specular") );
+            Material material = new Material(Shader.Find("Standard"));
 
-            AssetDatabase.CreateAsset(material, "Assets/Materials/CamFeed" + count + ".mat");
-            
             cam.targetTexture = texture;
             material.mainTexture = texture;
+
+            print("Texture: " + texture);
 
             var camFeedMonitor = GameObject.Find("CamFeed" + count);
 
@@ -42,17 +47,6 @@ public class RaidersHubManager : MonoBehaviour {
 
             monitorRenderer.material = material;
 
-            count++;
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        var count = 1;
-
-        foreach ( GameObject securityCam in securityCams )
-        {
-            AssetDatabase.DeleteAsset("Assets/Materials/CamFeed" + count + ".mat");
             count++;
         }
     }

@@ -12,52 +12,44 @@ public class RaycastingController : MonoBehaviour {
     [SerializeField] readonly float raycastRange = 2.0f;
 
     GameObject[] SecurityCams;
-    CapsuleCollider col;
-    Rigidbody rb;
     Camera fpsCam;
-    float speed = 2.0f;
     private FirstPersonController fpsController;
 
     // Use this for initialization
     void Start ()
     {
-        rb = GetComponent<Rigidbody>();
-        col = GetComponent<CapsuleCollider>();
         fpsController = GetComponent<FirstPersonController>();
         fpsCam = GetComponentInChildren<Camera>();
 
-        //----THE FOLLOWING WAS MOVED TO RAIDERS HUB MANAGER.CS - IF THAT IS CAUSING PROBLEMS RESTORE THIS, OTHERWISE DELETE:
+        //Delay added to allow for scene loading prior to set up:
+        Invoke("SecurityCamSetup", 0.5f);
+	}
 
-        //if (!SceneManager.GetSceneByBuildIndex(1).isLoaded)
-        //{
-        //    SceneManager.LoadScene(1, LoadSceneMode.Additive);
-        //}
-
-        //SceneManager.MergeScenes(SceneManager.GetSceneByBuildIndex(0), SceneManager.GetSceneByBuildIndex(1));
-
-        //----
-
+    private void SecurityCamSetup()
+    {
         SecurityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
 
-        foreach( GameObject cam in SecurityCams )
+        foreach (GameObject cam in SecurityCams)
         {
             securityCamControllers.Add(cam.GetComponent<SecurityCamController>());
         }
+    }
 
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         if( fpsController.m_isActive )
         {
             RaycastHit hit;
             bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange);
+
             if ( isHit 
                 && Input.GetKeyDown(KeyCode.Mouse0) 
                 && hit.transform.tag == "CamFeed" 
-                && securityCamControllers[0] )
+                && securityCamControllers.Count > 0 )
             {
+                print("CAMFEED HIT, CAMS EXIST");
+
                 Cursor.lockState = CursorLockMode.Locked;
 
                 string feedName = hit.transform.name;

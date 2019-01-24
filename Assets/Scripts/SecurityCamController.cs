@@ -23,6 +23,12 @@ public class SecurityCamController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         isCamActive = false;
 
+        //Delay added to allow for scene loading prior to set up:
+        Invoke("PlayerTagGOSetup", 0.5f);
+    }
+
+    private void PlayerTagGOSetup ()
+    {
         RaidersHubGOArray = GameObject.FindGameObjectsWithTag("Player");
 
         foreach ( GameObject go in RaidersHubGOArray )
