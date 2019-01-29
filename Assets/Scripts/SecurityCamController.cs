@@ -50,10 +50,10 @@ public class SecurityCamController : MonoBehaviour {
             mouseLook.x = Mathf.Clamp(mouseLook.x, -45f, 45f);
             mouseLook.y = Mathf.Clamp(mouseLook.y, -45f, 45f);
 
-            hJoint.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, Vector3.up);
-            vJoint.transform.localRotation = Quaternion.Euler(-mouseLook.y, mouseLook.x - 90, 0);
+            hJoint.transform.localRotation = Quaternion.Euler(hJoint.transform.localRotation.x, mouseLook.x, hJoint.transform.localRotation.z);
+            vJoint.transform.localRotation = Quaternion.Euler(-mouseLook.y, vJoint.transform.localRotation.y - 90, vJoint.transform.localRotation.z);
 
-            if( Input.GetKeyDown(KeyCode.Mouse1) )
+            if ( Input.GetKeyDown(KeyCode.Mouse1) )
             {
                 isCamActive = false;
                 fpsController.m_isActive = true;
