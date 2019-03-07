@@ -1952,6 +1952,7 @@ GameObject:
   - component: {fileID: 6597484874514509154}
   - component: {fileID: 7565400672798546836}
   - component: {fileID: 1861898206193080430}
+  - component: {fileID: 2517547737298134571}
   m_Layer: 0
   m_Name: EnemyPrototype
   m_TagString: Untagged
@@ -2080,6 +2081,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &2517547737298134571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350171331244764807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c018f3a1e18ef43bdc53da7d3918dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6362016042107204374
 GameObject:
   m_ObjectHideFlags: 0
