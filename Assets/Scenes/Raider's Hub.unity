@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d1229392205cf0341b5c261bcb9e1fbf, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d506467e3f2727348bd19459bf600b77, type: 2}
 --- !u!1 &277229588
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,46 +477,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
---- !u!1 &1940053599
-GameObject:
+--- !u!1001 &2432001809755264924
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1940053601}
-  - component: {fileID: 1940053600}
-  m_Layer: 0
-  m_Name: RaidersHubManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1940053600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940053599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb7be9172892e494c9d17c0062b2a5e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1940053601
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940053599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.237235, y: 8.986611, z: 10.74811}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2432001809967155651, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_Name
+      value: manager_raiders_hub
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.237235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.986611
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.74811
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432001809967155709, guid: e2438d42e4a7c0a4a9fc0fb593b49e43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2438d42e4a7c0a4a9fc0fb593b49e43, type: 3}

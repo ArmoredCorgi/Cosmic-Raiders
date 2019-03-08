@@ -7,6 +7,10 @@ TagManager:
   - Fire
   - SecurityCam
   - CamFeed
+  - MainLight
+  - AlarmLight
+  - Enemy
+  - Siren
   layers:
   - Default
   - TransparentFX

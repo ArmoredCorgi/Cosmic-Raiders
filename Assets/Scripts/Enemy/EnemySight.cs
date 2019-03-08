@@ -14,7 +14,7 @@ public class EnemySight : MonoBehaviour
     private NavMeshAgent nav; //Use length of the path to player to determine how far enemy can hear
     private SphereCollider enemySphereCol;
     private Animator anim; //has a playerInSight boolean parameter
-    private LastPlayerSighting lastPlayerSighting; //Custom script
+    private InfiltrationManager infiltrationManager;
     private GameObject player;
     private Animator playerAnim;
     private VRPlayerHealth vrPlayerHealth; //Check player's health, ignore if dead
@@ -26,24 +26,24 @@ public class EnemySight : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         enemySphereCol = GetComponent<SphereCollider>();
         anim = GetComponent<Animator>();
-        lastPlayerSighting = GameObject.FindGameObjectWithTag("GameController").GetComponent<LastPlayerSighting>();
+        infiltrationManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<InfiltrationManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAnim = player.GetComponent<Animator>();
         vrPlayerHealth = player.GetComponent<VRPlayerHealth>();
         hash = GameObject.FindGameObjectWithTag("GameController").GetComponent<HashIDs>();
 
-        personalLastSighting = lastPlayerSighting.resetPosition();
-        previousSighting = lastPlayerSighting.resetPosition();
+        personalLastSighting = infiltrationManager.resetPosition;
+        previousSighting = infiltrationManager.resetPosition;
     }
 
     private void Update()
     {
-        if (lastPlayerSighting.position != previousSighting)
+        if (infiltrationManager.lastSightingPosition != previousSighting)
         {
-            personalLastSighting = lastPlayerSighting.position;
+            personalLastSighting = infiltrationManager.lastSightingPosition;
         }
 
-        previousSighting = lastPlayerSighting.position;
+        previousSighting = infiltrationManager.lastSightingPosition;
 
         if (vrPlayerHealth.currentHealth > 0f)
         {
@@ -77,7 +77,7 @@ public class EnemySight : MonoBehaviour
                     if (hit.collider.gameObject == player)
                     {
                         playerInSight = true;
-                        lastPlayerSighting.position = player.transform.position;
+                        infiltrationManager.lastSightingPosition = player.transform.position;
                     }
                 }
             }
