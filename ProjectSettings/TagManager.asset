@@ -11,6 +11,7 @@ TagManager:
   - AlarmLight
   - Enemy
   - Siren
+  - Fader
   layers:
   - Default
   - TransparentFX

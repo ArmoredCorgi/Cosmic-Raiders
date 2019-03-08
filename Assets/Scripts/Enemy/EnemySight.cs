@@ -7,15 +7,16 @@ public class EnemySight : MonoBehaviour
 {
     //Public variables:
     public float fieldOfViewAngle = 110f;
-    public bool playerInSight; //If enemy can see player (needs to be accessed by decision making script, EnemyAI
+    public float enemyHearingRadius = 3f;
+    public bool playerInSight; //If enemy can see player (needs to be accessed by decision making script, EnemyAI)
     public Vector3 personalLastSighting; //Unique enemy's last sighting of the player
 
     //Private variables:
-    private NavMeshAgent nav; //Use length of the path to player to determine how far enemy can hear
-    private SphereCollider enemySphereCol;
-    private Animator anim; //has a playerInSight boolean parameter
-    private InfiltrationManager infiltrationManager;
     private GameObject player;
+    private NavMeshAgent nav; //Use length of the path to player to determine how far enemy can hear
+    private Animator anim; //has a playerInSight boolean parameter
+    private SphereCollider enemySphereCol;
+    private InfiltrationManager infiltrationManager;
     private Animator playerAnim;
     private VRPlayerHealth vrPlayerHealth; //Check player's health, ignore if dead
     private HashIDs hash; //Enum from Utility- stores animation controller states
@@ -23,17 +24,18 @@ public class EnemySight : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag(Tags.player);
         nav = GetComponent<NavMeshAgent>();
-        enemySphereCol = GetComponent<SphereCollider>();
         anim = GetComponent<Animator>();
-        infiltrationManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<InfiltrationManager>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        enemySphereCol = GetComponent<SphereCollider>();
+        infiltrationManager = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<InfiltrationManager>();
         playerAnim = player.GetComponent<Animator>();
         vrPlayerHealth = player.GetComponent<VRPlayerHealth>();
-        hash = GameObject.FindGameObjectWithTag("GameController").GetComponent<HashIDs>();
+        hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 
         personalLastSighting = infiltrationManager.resetPosition;
         previousSighting = infiltrationManager.resetPosition;
+        enemySphereCol.radius = enemyHearingRadius;
     }
 
     private void Update()

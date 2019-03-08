@@ -37,7 +37,7 @@ public class InfiltrationManager : MonoBehaviour {
         }
     }
 
-    void Start()
+    private void Start()
     {
         //Combine the Raider's Hub and Infiltration scenes:
         if (!SceneManager.GetSceneByName("Raider's Hub").isLoaded)
@@ -53,7 +53,7 @@ public class InfiltrationManager : MonoBehaviour {
         MusicFading();
     }
 
-    void SwitchAlarms()
+    private void SwitchAlarms()
     {
         alarm.alarmOn = (lastSightingPosition != resetPosition);
 
@@ -76,7 +76,7 @@ public class InfiltrationManager : MonoBehaviour {
         }
     }
 
-    void MusicFading()
+    private void MusicFading()
     {
         if( lastSightingPosition != resetPosition)
         {
@@ -88,5 +88,10 @@ public class InfiltrationManager : MonoBehaviour {
             normalAudio.volume = Mathf.Lerp(normalAudio.volume, 0.8f, musicFadeSpeed * Time.deltaTime);
             panicAudio.volume = Mathf.Lerp(panicAudio.volume, 0f, musicFadeSpeed * Time.deltaTime);
         }
+    }
+
+    public void EndScene()
+    {
+        //End Scene, return to Raider's Hub?
     }
 }

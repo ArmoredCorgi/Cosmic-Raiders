@@ -13,4 +13,5 @@ public class Tags : MonoBehaviour
     public const string mainLight = "MainLight";
     public const string alarmLight = "AlarmLight";
     public const string siren = "Siren";
+    public const string fader = "Fader";
 }

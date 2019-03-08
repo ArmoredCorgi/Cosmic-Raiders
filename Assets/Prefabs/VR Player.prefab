@@ -444,11 +444,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438612053}
-  - component: {fileID: 1438612052}
   - component: {fileID: 1438612051}
   - component: {fileID: 1438612050}
+  - component: {fileID: 1438612052}
   - component: {fileID: 1438612049}
   - component: {fileID: 1438612048}
+  - component: {fileID: 4485660586881186363}
   m_Layer: 0
   m_Name: VR Player
   m_TagString: Player
@@ -473,22 +474,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1438612052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438612047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b47c2980b93bc48844a54641dab5b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  left: {fileID: 585638728}
-  right: {fileID: 300251151}
-  objects: []
-  assignAllBeforeIdentified: 0
 --- !u!23 &1438612051
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -534,6 +519,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438612047}
   m_Mesh: {fileID: 0}
+--- !u!114 &1438612052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438612047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b47c2980b93bc48844a54641dab5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: {fileID: 585638728}
+  right: {fileID: 300251151}
+  objects: []
+  assignAllBeforeIdentified: 0
 --- !u!114 &1438612049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +576,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftController: {fileID: 585638729}
   rightController: {fileID: 300251150}
+  playerMoveEnabled: 0
+--- !u!114 &4485660586881186363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438612047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e0b4a62ef6357439ee34b8bf294cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  resetAfterDeathTime: 3
 --- !u!1 &1520974446
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +660,7 @@ Camera:
     m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 7
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1

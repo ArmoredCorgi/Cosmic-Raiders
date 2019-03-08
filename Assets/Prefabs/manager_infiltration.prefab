@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7672424770451899310}
   - component: {fileID: 7672424770451899311}
   - component: {fileID: 7672424770451899309}
+  - component: {fileID: 7173637872994635211}
   m_Layer: 0
   m_Name: manager_infiltration
   m_TagString: GameController
@@ -147,6 +148,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7173637872994635211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7672424770451899280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9154d3e939e89734d9eabcb2d7a5a7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locomotionState: 0
+  teleportedState: 0
+  pcWalking: 0
+  pcRunning: 0
+  pcJumped: 0
+  playerInSightBool: 0
 --- !u!1 &7672424771406489786
 GameObject:
   m_ObjectHideFlags: 0
