@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR;
 using System;
 
-public class PlayerController : MonoBehaviour {
+public class VRController : MonoBehaviour {
     
     public SteamVR_TrackedController leftController;
     public SteamVR_TrackedController rightController;

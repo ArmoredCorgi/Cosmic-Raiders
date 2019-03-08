@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class UIController_FirstPerson : MonoBehaviour {
+public class PCUIController : MonoBehaviour {
 
     FirstPersonController fpsController;
     GameObject reticle;
