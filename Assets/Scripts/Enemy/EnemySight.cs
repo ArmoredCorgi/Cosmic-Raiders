@@ -7,7 +7,7 @@ public class EnemySight : MonoBehaviour
 {
     //Public variables:
     public float fieldOfViewAngle = 110f;
-    public float enemyHearingRadius = 3f;
+    public float enemyHearingRadius = 4f;
     public bool playerInSight; //If enemy can see player (needs to be accessed by decision making script, EnemyAI)
     public Vector3 personalLastSighting; //Unique enemy's last sighting of the player
 

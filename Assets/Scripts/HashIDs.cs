@@ -15,14 +15,24 @@ public class HashIDs : MonoBehaviour
 
     //Enemy Animation Hashes:
     public int playerInSightBool;
+    public int speedFloat;
+    public int angularSpeedFloat;
+    public int shotFloat;
+    public int aimWeightFloat;
 
     private void Awake()
     {
         locomotionState = Animator.StringToHash("vrLocomotionActive");
         teleportedState = Animator.StringToHash("VRPlayerAC_TeleportedLayer.Teleported");
-        playerInSightBool = Animator.StringToHash("playerInSight");
+
         pcWalking = Animator.StringToHash("pcWalking");
         pcRunning = Animator.StringToHash("pcRunning");
         pcJumped = Animator.StringToHash("pcJumped");
+
+        playerInSightBool = Animator.StringToHash("PlayerInSight");
+        speedFloat = Animator.StringToHash("SpeedFloat");
+        angularSpeedFloat = Animator.StringToHash("AngularSpeedFloat");
+        shotFloat = Animator.StringToHash("Shot");
+        aimWeightFloat = Animator.StringToHash("AimWeight");
     }
 }
