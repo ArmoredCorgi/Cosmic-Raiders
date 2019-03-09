@@ -52,7 +52,7 @@ public class EnemyAnimation : MonoBehaviour
         {
             speed = 0f;
 
-            angle = FindAngle(transform.position, player.position - transform.position, transform.up);
+            angle = FindAngle(transform.forward, player.position - transform.position, transform.up);
         }
         else
         {

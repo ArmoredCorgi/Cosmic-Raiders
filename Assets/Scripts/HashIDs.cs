@@ -30,8 +30,8 @@ public class HashIDs : MonoBehaviour
         pcJumped = Animator.StringToHash("pcJumped");
 
         playerInSightBool = Animator.StringToHash("PlayerInSight");
-        speedFloat = Animator.StringToHash("SpeedFloat");
-        angularSpeedFloat = Animator.StringToHash("AngularSpeedFloat");
+        speedFloat = Animator.StringToHash("Speed");
+        angularSpeedFloat = Animator.StringToHash("AngularSpeed");
         shotFloat = Animator.StringToHash("Shot");
         aimWeightFloat = Animator.StringToHash("AimWeight");
     }

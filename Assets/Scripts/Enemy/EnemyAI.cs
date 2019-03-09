@@ -9,7 +9,8 @@ public class EnemyAI : MonoBehaviour
     public float chaseSpeed = 5f;
     public float chaseWaitTime = 5f;
     public float patrolWaitTime = 1f;
-    public Transform[] patrolWayPoints;
+
+    [SerializeField] Transform[] patrolWayPoints;
 
     private float chaseTimer;
     private float patrolTimer;
@@ -103,6 +104,8 @@ public class EnemyAI : MonoBehaviour
         {
             patrolTimer = 0f;
         }
+
+        print("WayPoint Index: " + wayPointIndex);
 
         nav.destination = patrolWayPoints[wayPointIndex].position;
     }
