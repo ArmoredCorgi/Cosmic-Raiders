@@ -209,11 +209,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893185779}
+  - component: {fileID: 8677124995800630994}
   - component: {fileID: 893185784}
   - component: {fileID: 893185783}
   - component: {fileID: 893185782}
   - component: {fileID: 893185781}
-  - component: {fileID: 893185780}
+  - component: {fileID: 8964183039656475094}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: Untagged
@@ -235,6 +236,19 @@ Transform:
   m_Father: {fileID: 1520974447}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8677124995800630994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893185778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 2, z: 0.25}
+  m_Center: {x: 0, y: -0.75, z: 0}
 --- !u!20 &893185784
 Camera:
   m_ObjectHideFlags: 0
@@ -262,13 +276,13 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 7
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
@@ -322,7 +336,7 @@ MonoBehaviour:
   BorderMaterial: {fileID: 0}
   BorderAlpha: 1
   _BorderHeight: 0.2
---- !u!114 &893185780
+--- !u!114 &8964183039656475094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,9 +464,10 @@ GameObject:
   - component: {fileID: 1438612049}
   - component: {fileID: 1438612048}
   - component: {fileID: 4485660586881186363}
+  - component: {fileID: 1222503636}
   m_Layer: 0
   m_Name: VR Player
-  m_TagString: Player
+  m_TagString: VRPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,6 +607,25 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   resetAfterDeathTime: 3
+--- !u!95 &1222503636
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438612047}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c15ad8793bff87349ad4fe6261a35bc4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1520974446
 GameObject:
   m_ObjectHideFlags: 0

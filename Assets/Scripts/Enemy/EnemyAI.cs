@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     {
         enemySight = GetComponent<EnemySight>();
         nav = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+        player = GameObject.FindGameObjectWithTag(Tags.vrPlayer).transform;
         playerHealth = player.GetComponent<VRPlayerHealth>();
         infiltrationManager = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<InfiltrationManager>();
     }

@@ -26,7 +26,7 @@ public class EnemyShooting : MonoBehaviour
         laserShotLine = GetComponentInChildren<LineRenderer>();
         laserShotLight = laserShotLine.gameObject.GetComponent<Light>();
         enemySphereCol = GetComponent<SphereCollider>();
-        player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+        player = GameObject.FindGameObjectWithTag(Tags.vrPlayer).transform;
         playerHealth = player.gameObject.GetComponent<VRPlayerHealth>();
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 

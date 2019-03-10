@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Siren
   - Fader
+  - VRPlayer
   layers:
   - Default
   - TransparentFX

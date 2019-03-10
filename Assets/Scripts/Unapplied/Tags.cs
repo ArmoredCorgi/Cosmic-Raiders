@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tags : MonoBehaviour
 {
-    public const string player = "Player";
+    public const string pcPlayer = "Player";
     public const string enemy = "Enemy";
     public const string gameController = "GameController";
     public const string fire = "Fire";
@@ -14,4 +14,5 @@ public class Tags : MonoBehaviour
     public const string alarmLight = "AlarmLight";
     public const string siren = "Siren";
     public const string fader = "Fader";
+    public const string vrPlayer = "VRPlayer";
 }

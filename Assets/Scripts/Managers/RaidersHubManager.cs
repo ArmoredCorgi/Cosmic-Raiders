@@ -10,11 +10,11 @@ public class RaidersHubManager : MonoBehaviour {
 
 	void Start ()
     {
-        //Combine the Raider's Hub and Infiltration scenes:
-        if (!SceneManager.GetSceneByName("Infiltration").isLoaded)
-        {
-            SceneManager.LoadScene("Infiltration", LoadSceneMode.Additive);
-        }
+        ////Combine the Raider's Hub and Infiltration scenes:
+        //if (!SceneManager.GetSceneByName("Infiltration").isLoaded)
+        //{
+        //    SceneManager.LoadSceneAsync("Infiltration", LoadSceneMode.Additive);
+        //}
 
         //Delay added to allow for scene loading prior to set up:
         Invoke("SecurityCamSetup", 0.5f);
@@ -24,7 +24,7 @@ public class RaidersHubManager : MonoBehaviour {
     {
         var count = 1;
 
-        SceneManager.MergeScenes(SceneManager.GetSceneByName("Raider's Hub"), SceneManager.GetSceneByName("Infiltration"));
+        //SceneManager.MergeScenes(SceneManager.GetSceneByName("Raider's Hub"), SceneManager.GetSceneByName("Infiltration"));
 
         //Get all security cameras in scene:
         securityCams = GameObject.FindGameObjectsWithTag("SecurityCam");

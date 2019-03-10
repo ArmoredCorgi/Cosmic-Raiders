@@ -17,19 +17,19 @@ public class EnemySight : MonoBehaviour
     private Animator anim; //has a playerInSight boolean parameter
     private SphereCollider enemySphereCol;
     private InfiltrationManager infiltrationManager;
-    private Animator playerAnim;
+    private VRController vrController;
     private VRPlayerHealth vrPlayerHealth; //Check player's health, ignore if dead
     private HashIDs hash; //Enum from Utility- stores animation controller states
     private Vector3 previousSighting;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag(Tags.player);
+        player = GameObject.FindGameObjectWithTag(Tags.vrPlayer);
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         enemySphereCol = GetComponent<SphereCollider>();
         infiltrationManager = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<InfiltrationManager>();
-        playerAnim = player.GetComponent<Animator>();
+        vrController = player.GetComponent<VRController>();
         vrPlayerHealth = player.GetComponent<VRPlayerHealth>();
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<HashIDs>();
 
@@ -59,42 +59,42 @@ public class EnemySight : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject.layer != LayerMask.NameToLayer("Ground"))
         {
-            //---Check if enemy can SEE the player:
-
-            playerInSight = false; //Default for if any of the following conditions fail
-
-            Vector3 direction = other.transform.position - transform.position;
-            float angle = Vector3.Angle(direction, transform.forward);
-
-            if (angle < fieldOfViewAngle * 0.5f)
+            if (other.transform.root.gameObject == player)
             {
-                RaycastHit hit;
+                //---Check if enemy can SEE the player:
 
-                Vector3 raycastPos = transform.position + transform.up;
+                playerInSight = false; //Default for if any of the following conditions fail
 
-                if (Physics.Raycast(raycastPos, direction.normalized, out hit, enemySphereCol.radius))
+                Vector3 direction = other.transform.position - transform.position;
+                float angle = Vector3.Angle(direction, transform.forward);
+
+                if (angle < fieldOfViewAngle * 0.5f)
                 {
-                    if (hit.collider.gameObject == player)
+                    RaycastHit hit;
+
+                    Vector3 raycastPos = transform.position + transform.up;
+
+                    if (Physics.Raycast(raycastPos, direction.normalized, out hit, enemySphereCol.radius))
                     {
-                        playerInSight = true;
-                        infiltrationManager.lastSightingPosition = player.transform.position;
+                        if (hit.collider.gameObject == player)
+                        {
+                            playerInSight = true;
+                            infiltrationManager.lastSightingPosition = player.transform.position;
+                        }
                     }
                 }
-            }
-            //---
+                //---
 
-            //---Check if enemy can HEAR the player:
+                //---Check if enemy can HEAR the player:
 
-            int playerLayerZeroStateHash = playerAnim.GetCurrentAnimatorStateInfo(0).nameHash;
-            int playerLayerOneStateHash = playerAnim.GetCurrentAnimatorStateInfo(1).nameHash;
-
-            if (playerLayerZeroStateHash == hash.locomotionState || playerLayerOneStateHash == hash.teleportedState) //NOTE: hash.locomotionState is active when player is moving, hash.teleportedState is active for a short time after player has teleported
-            {
-                if (CalculatePathLength(player.transform.position) <= enemySphereCol.radius) //Enemy can hear the player!
+                if (vrController.playerMoving) //NOTE: hash.locomotionState is active when player is moving, hash.teleportedState is active for a short time after player has teleported
                 {
-                    personalLastSighting = player.transform.position; //this enemy's last sighting of the player becomes the player's current position
+                    if (CalculatePathLength(player.transform.position) <= enemySphereCol.radius) //Enemy can hear the player!
+                    {
+                        personalLastSighting = player.transform.position; //this enemy's last sighting of the player becomes the player's current position
+                    }
                 }
             }
         }

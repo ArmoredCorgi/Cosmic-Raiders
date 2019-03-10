@@ -39,12 +39,10 @@ public class InfiltrationManager : MonoBehaviour {
 
     private void Start()
     {
-        //Combine the Raider's Hub and Infiltration scenes:
-        if (!SceneManager.GetSceneByName("Raider's Hub").isLoaded)
-        {
-            SceneManager.LoadScene("Raider's Hub", LoadSceneMode.Additive);
-            SceneManager.MergeScenes(SceneManager.GetSceneByName("Raider's Hub"), SceneManager.GetSceneByName("Infiltration"));
-        }
+        //if (!SceneManager.GetSceneByName("Raider's Hub").isLoaded)
+        //{
+        //    SceneManager.LoadSceneAsync("Raider's Hub", LoadSceneMode.Additive);
+        //}
     }
 
     private void Update()

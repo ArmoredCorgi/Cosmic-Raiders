@@ -17,7 +17,7 @@ public class EnemyAnimation : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+        player = GameObject.FindGameObjectWithTag(Tags.vrPlayer).transform;
         enemySight = GetComponent<EnemySight>();
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();

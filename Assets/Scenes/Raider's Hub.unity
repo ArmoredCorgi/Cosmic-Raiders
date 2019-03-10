@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d506467e3f2727348bd19459bf600b77, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d1229392205cf0341b5c261bcb9e1fbf, type: 2}
 --- !u!1 &277229588
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1057635840, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1057635846, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -473,6 +477,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1057635846, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057635847, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

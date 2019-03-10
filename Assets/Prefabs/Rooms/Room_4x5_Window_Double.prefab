@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 33283343895972392}
   - component: {fileID: 23113682650897440}
   - component: {fileID: 65301179695337422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teleportable Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3344,8 +3344,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.9103774, g: 0.91666126, b: 1, a: 1}
+  m_Intensity: 1.06
   m_Range: 3.446271
   m_SpotAngle: 156.4
   m_CookieSize: 10
@@ -3600,8 +3600,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.9103774, g: 0.91666126, b: 1, a: 1}
+  m_Intensity: 1.06
   m_Range: 3.3953085
   m_SpotAngle: 156.4
   m_CookieSize: 10
@@ -4299,8 +4299,8 @@ GameObject:
   - component: {fileID: 7323096516538685235}
   - component: {fileID: 8318561463435482804}
   m_Layer: 0
-  m_Name: Speaker Alarm
-  m_TagString: Untagged
+  m_Name: Siren
+  m_TagString: Siren
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
