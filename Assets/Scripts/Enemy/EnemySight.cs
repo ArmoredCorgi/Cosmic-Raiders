@@ -7,7 +7,7 @@ public class EnemySight : MonoBehaviour
 {
     //Public variables:
     public float fieldOfViewAngle = 110f;
-    public float enemyHearingRadius = 4f;
+    public float enemyHearingRadius = 6f;
     public bool playerInSight; //If enemy can see player (needs to be accessed by decision making script, EnemyAI)
     public Vector3 personalLastSighting; //Unique enemy's last sighting of the player
 
@@ -35,7 +35,6 @@ public class EnemySight : MonoBehaviour
 
         personalLastSighting = infiltrationManager.resetPosition;
         previousSighting = infiltrationManager.resetPosition;
-        enemySphereCol.radius = enemyHearingRadius;
     }
 
     private void Update()
@@ -66,22 +65,24 @@ public class EnemySight : MonoBehaviour
                 //---Check if enemy can SEE the player:
 
                 playerInSight = false; //Default for if any of the following conditions fail
+                var playerPosition = other.transform.position;
+                var enemyPosition = transform.position;
 
-                Vector3 direction = other.transform.localPosition - transform.position;
+                Vector3 direction = playerPosition - enemyPosition;
                 float angle = Vector3.Angle(direction, transform.forward);
 
                 if (angle < fieldOfViewAngle * 0.5f)
                 {
                     RaycastHit hit;
 
-                    Vector3 raycastPos = transform.position + transform.up;
+                    Vector3 raycastPos = enemyPosition + transform.up;
 
                     if (Physics.Raycast(raycastPos, direction.normalized, out hit, enemySphereCol.radius))
                     {
                         if (hit.collider.transform.root.gameObject == player) //Enemy can see the player!
                         {
                             playerInSight = true;
-                            infiltrationManager.lastSightingPosition = player.transform.position;
+                            infiltrationManager.lastSightingPosition = playerPosition;
                         }
                     }
                 }
@@ -91,7 +92,7 @@ public class EnemySight : MonoBehaviour
 
                 if (vrController.playerMoving)
                 {
-                    if (CalculatePathLength(player.transform.position) <= enemySphereCol.radius) //Enemy can hear the player!
+                    if (CalculatePathLength(player.transform.position) <= enemyHearingRadius) //Enemy can hear the player!
                     {
                         personalLastSighting = player.transform.position; //this enemy's last sighting of the player becomes the player's current position
                     }
