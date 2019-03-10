@@ -48,7 +48,7 @@ public class VRPlayerHealth : MonoBehaviour
 
     private void PlayerDead()
     {
-        vrController.playerMoveEnabled = false;
+        vrController.playerAlive = false;
         infiltrationManager.lastSightingPosition = infiltrationManager.resetPosition;
     }
 

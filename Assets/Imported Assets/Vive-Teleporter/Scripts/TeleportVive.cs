@@ -56,8 +56,14 @@ public class TeleportVive : MonoBehaviour {
 
     private Mesh PlaneMesh;
 
+    //VRController for checking if player is alive:
+    private VRController vrController;
+
     void Start()
     {
+        //Getting VRController from vr player object:
+        vrController = GameObject.FindGameObjectWithTag(Tags.vrPlayer).GetComponent<VRController>();
+
         // Disable the pointer graphic (until the user holds down on the touchpad)
         Pointer.enabled = false;
 
@@ -158,6 +164,11 @@ public class TeleportVive : MonoBehaviour {
 
 	void Update ()
     {
+        if (!vrController.playerAlive) //if player is dead, disable teleporting
+        {
+            CurrentTeleportState = TeleportState.None;
+            return;
+        }
         // If we are currently teleporting (ie handling the fade in/out transition)...
         if(CurrentTeleportState == TeleportState.Teleporting)
         {

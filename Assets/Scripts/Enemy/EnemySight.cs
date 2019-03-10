@@ -67,7 +67,7 @@ public class EnemySight : MonoBehaviour
 
                 playerInSight = false; //Default for if any of the following conditions fail
 
-                Vector3 direction = other.transform.position - transform.position;
+                Vector3 direction = other.transform.localPosition - transform.position;
                 float angle = Vector3.Angle(direction, transform.forward);
 
                 if (angle < fieldOfViewAngle * 0.5f)
@@ -78,7 +78,7 @@ public class EnemySight : MonoBehaviour
 
                     if (Physics.Raycast(raycastPos, direction.normalized, out hit, enemySphereCol.radius))
                     {
-                        if (hit.collider.gameObject == player)
+                        if (hit.collider.transform.root.gameObject == player) //Enemy can see the player!
                         {
                             playerInSight = true;
                             infiltrationManager.lastSightingPosition = player.transform.position;
@@ -89,7 +89,7 @@ public class EnemySight : MonoBehaviour
 
                 //---Check if enemy can HEAR the player:
 
-                if (vrController.playerMoving) //NOTE: hash.locomotionState is active when player is moving, hash.teleportedState is active for a short time after player has teleported
+                if (vrController.playerMoving)
                 {
                     if (CalculatePathLength(player.transform.position) <= enemySphereCol.radius) //Enemy can hear the player!
                     {

@@ -375,7 +375,6 @@ GameObject:
   - component: {fileID: 4765754887546178}
   - component: {fileID: 33915778106273424}
   - component: {fileID: 23882074393818408}
-  - component: {fileID: 136347430435277154}
   - component: {fileID: 108012217243113418}
   m_Layer: 0
   m_Name: Cieling Light
@@ -443,20 +442,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &136347430435277154
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136974518771424}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108012217243113418
 Light:
   m_ObjectHideFlags: 0

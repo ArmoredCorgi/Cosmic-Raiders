@@ -7,7 +7,7 @@ using System;
 public class VRController : MonoBehaviour {
     
     public SteamVR_TrackedController rightController;
-    public bool playerMoveEnabled;
+    public bool playerAlive;
     public bool playerMoving;
 
     private SteamVR_Controller.Device rightControllerDevice { get { return SteamVR_Controller.Input((int)rightController.controllerIndex); } }
@@ -20,14 +20,14 @@ public class VRController : MonoBehaviour {
 
     void Awake ()
     {
-        playerMoveEnabled = true;
+        playerAlive = true;
         playerMoving = false;
         leftControllerLocomotion = GetComponentInChildren<LeftControllerLocomotion>();
 	}
 	
 	void Update ()
     {
-        if (playerMoveEnabled)
+        if (playerAlive)
         {
             playerMoving = leftControllerLocomotion.Locomotion();
         }

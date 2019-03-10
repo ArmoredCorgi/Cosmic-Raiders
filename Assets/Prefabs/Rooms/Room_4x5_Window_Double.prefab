@@ -3252,7 +3252,6 @@ GameObject:
   - component: {fileID: 4915069067574942}
   - component: {fileID: 33041062801487036}
   - component: {fileID: 23944034314528828}
-  - component: {fileID: 136051863667828738}
   - component: {fileID: 108188646773828006}
   m_Layer: 0
   m_Name: Cieling Light
@@ -3320,20 +3319,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &136051863667828738
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773109012092128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108188646773828006
 Light:
   m_ObjectHideFlags: 0
@@ -3508,7 +3493,6 @@ GameObject:
   - component: {fileID: 4937797005852872}
   - component: {fileID: 33448140630109388}
   - component: {fileID: 23487410394222144}
-  - component: {fileID: 136417129617882420}
   - component: {fileID: 108637661875150912}
   m_Layer: 0
   m_Name: Cieling Light
@@ -3576,20 +3560,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &136417129617882420
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830157588101614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108637661875150912
 Light:
   m_ObjectHideFlags: 0

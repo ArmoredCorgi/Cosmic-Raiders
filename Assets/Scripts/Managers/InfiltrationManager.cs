@@ -53,11 +53,11 @@ public class InfiltrationManager : MonoBehaviour {
 
     private void SwitchAlarms()
     {
-        alarm.alarmOn = (lastSightingPosition != resetPosition);
+        alarm.alarmOn = lastSightingPosition != resetPosition;
 
         float newIntensity;
 
-        newIntensity = (lastSightingPosition != resetPosition) ? lightLowIntensity : lightHighIntensity;
+        newIntensity = alarm.alarmOn ? lightLowIntensity : lightHighIntensity;
 
         mainLight.intensity = Mathf.Lerp(mainLight.intensity, newIntensity, fadeSpeed * Time.deltaTime);
 

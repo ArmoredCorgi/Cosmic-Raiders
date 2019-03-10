@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 585638732}
   - component: {fileID: 585638731}
   - component: {fileID: 585638729}
-  - component: {fileID: 585638730}
+  - component: {fileID: 1733466716491610070}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -186,7 +186,7 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
---- !u!114 &585638730
+--- !u!114 &1733466716491610070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 8964183039656475094}
   m_Layer: 0
   m_Name: Camera (eye)
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,9 +589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fdee34f7598b248ac4c07ec98d13be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftController: {fileID: 585638729}
-  rightController: {fileID: 300251150}
+  rightController: {fileID: 0}
   playerMoveEnabled: 0
+  playerMoving: 0
 --- !u!114 &4485660586881186363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 1520974448}
   m_Layer: 0
   m_Name: Camera (head)
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
