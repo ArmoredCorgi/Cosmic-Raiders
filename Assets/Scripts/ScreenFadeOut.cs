@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScreenFadeOut : MonoBehaviour
 {
-    public float fadeSpeed = 1.5f;
+    public float fadeSpeed = 1f;
     
     private RectTransform rectTransform;
     private Image blackScreen;
@@ -17,7 +17,7 @@ public class ScreenFadeOut : MonoBehaviour
         blackScreen = GetComponent<Image>();
         infiltrationManager = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<InfiltrationManager>();
 
-        rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
+        blackScreen.color = Color.clear;
     }
 
     private void FadeToBlack()

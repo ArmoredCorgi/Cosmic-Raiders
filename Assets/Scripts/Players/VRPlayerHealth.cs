@@ -36,7 +36,6 @@ public class VRPlayerHealth : MonoBehaviour
             else
             {
                 PlayerDead();
-                LevelEnd();
             }
         }
     }
@@ -50,16 +49,7 @@ public class VRPlayerHealth : MonoBehaviour
     {
         vrController.playerAlive = false;
         infiltrationManager.lastSightingPosition = infiltrationManager.resetPosition;
-    }
-
-    private void LevelEnd()
-    {
-        timer += Time.deltaTime;
-
-        if(timer >= resetAfterDeathTime)
-        {
-            screenFadeOut.EndScene();
-        }
+        screenFadeOut.EndScene();
     }
 
     public void TakeDamage(float amount)

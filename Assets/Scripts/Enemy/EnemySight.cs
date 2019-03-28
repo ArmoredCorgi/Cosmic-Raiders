@@ -66,7 +66,7 @@ public class EnemySight : MonoBehaviour
 
                 playerInSight = false; //Default for if any of the following conditions fail
                 var playerPosition = other.transform.position;
-                var enemyPosition = transform.position;
+                var enemyPosition = transform.position + transform.up;
 
                 Vector3 direction = playerPosition - enemyPosition;
                 float angle = Vector3.Angle(direction, transform.forward);
@@ -75,7 +75,7 @@ public class EnemySight : MonoBehaviour
                 {
                     RaycastHit hit;
 
-                    Vector3 raycastPos = enemyPosition + transform.up;
+                    Vector3 raycastPos = enemyPosition;
 
                     if (Physics.Raycast(raycastPos, direction.normalized, out hit, enemySphereCol.radius))
                     {
