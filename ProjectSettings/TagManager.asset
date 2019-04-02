@@ -14,6 +14,7 @@ TagManager:
   - Fader
   - VRPlayer
   - HackingTerminal
+  - MazeWall
   layers:
   - Default
   - TransparentFX
