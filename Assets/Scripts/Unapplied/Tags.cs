@@ -15,4 +15,5 @@ public class Tags : MonoBehaviour
     public const string siren = "Siren";
     public const string fader = "Fader";
     public const string vrPlayer = "VRPlayer";
+    public const string hackingTerminal = "HackingTerminal";
 }

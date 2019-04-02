@@ -6,7 +6,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class RaycastingController : MonoBehaviour {
     
-    public bool isPlayerActive;
+    public bool isInHackingMenu;
+    public Canvas pcCanvas;
 
     [SerializeField] List<SecurityCamController> securityCamControllers = new List<SecurityCamController>();
     [SerializeField] readonly float raycastRange = 2.0f;
@@ -18,6 +19,8 @@ public class RaycastingController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        isInHackingMenu = false;
+
         fpsController = GetComponent<FirstPersonController>();
         fpsCam = GetComponentInChildren<Camera>();
 
@@ -38,14 +41,19 @@ public class RaycastingController : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if( fpsController.m_isActive )
+        //TODO: Migrate to PCUIController
+        var reticle = pcCanvas.transform.Find("Image_Reticle").gameObject;
+        var hackingMenu = pcCanvas.transform.Find("HackingMenu").gameObject;
+
+        if ( fpsController.enabled && Input.GetKeyDown(KeyCode.Mouse0) )
         {
             RaycastHit hit;
             bool isHit = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, raycastRange);
 
-            if ( isHit 
-                && Input.GetKeyDown(KeyCode.Mouse0) 
-                && hit.transform.tag == "CamFeed" 
+            print(hit.transform.tag);
+
+            if ( isHit  
+                && hit.transform.tag == Tags.camFeed 
                 && securityCamControllers.Count > 0 )
             {
                 print("CAMFEED HIT, CAMS EXIST");
@@ -59,12 +67,41 @@ public class RaycastingController : MonoBehaviour {
 
                 if( feedNum <= securityCamControllers.Count )
                 {
-                    fpsController.m_isActive = false;
+                    fpsController.enabled = false;
                     securityCamControllers[feedNum - 1].isCamActive = true;
                 }
 
                 return;
             }
+            if ( isHit
+                && hit.transform.tag == Tags.hackingTerminal)
+            {
+                print("TERMINAL HIT");
+
+                fpsController.enabled = false;
+                isInHackingMenu = true;
+            }
+        }
+
+        if( isInHackingMenu && pcCanvas != null )
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                Cursor.visible = false;
+                hackingMenu.SetActive(false);
+                reticle.SetActive(true);
+                fpsController.enabled = true;
+                isInHackingMenu = false;
+                return;
+            }
+
+            if (reticle != null)
+                reticle.SetActive(false);
+            if (hackingMenu != null)
+                hackingMenu.SetActive(true);
         }
     }
 }

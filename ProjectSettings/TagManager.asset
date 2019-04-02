@@ -13,6 +13,7 @@ TagManager:
   - Siren
   - Fader
   - VRPlayer
+  - HackingTerminal
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,6 @@ public class PCUIController : MonoBehaviour {
 	
 	void Update ()
     {
-        reticle.SetActive(fpsController.m_isActive);
+        reticle.SetActive(fpsController.enabled);
 	}
 }

@@ -56,7 +56,7 @@ public class SecurityCamController : MonoBehaviour {
             if ( Input.GetKeyDown(KeyCode.Mouse1) )
             {
                 isCamActive = false;
-                fpsController.m_isActive = true;
+                fpsController.enabled = true;
             }
         }
     }
