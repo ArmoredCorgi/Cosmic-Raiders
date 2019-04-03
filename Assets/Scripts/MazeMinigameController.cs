@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class MazeMinigameController : MonoBehaviour
 {
+    //TODO: Randomly generated (winnable) mazes
+
     [SerializeField] private RectTransform goalPos;
     [SerializeField] private RectTransform rectTransform;
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject reticle;
+    [SerializeField] private GameObject hackingMenu;
+    [SerializeField] private RaycastingController raycastingController;
+
     private Vector3 initPos;
     private float dx, dy;
     private bool canMove;
@@ -23,46 +30,39 @@ public class MazeMinigameController : MonoBehaviour
         if( Input.GetKey(KeyCode.Mouse0) )
         {
             Vector2 clickPos = Input.mousePosition;
-            print("GetKeyDown");
 
              if( Mathf.Abs(rectTransform.position.x - clickPos.x) <= 10f &&
                  Mathf.Abs(rectTransform.position.y - clickPos.y) <= 10f)
              {
-                print("Began touching player node");
                 rectTransform.position = new Vector2(clickPos.x, clickPos.y);
              }
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Mathf.Abs(rectTransform.position.x - goalPos.position.x) <= 5f &&
+                Mathf.Abs(rectTransform.position.y - goalPos.position.y) <= 5f)
         {
-            if (Mathf.Abs(rectTransform.position.x - goalPos.position.x) <= 5f &&
-                Mathf.Abs(rectTransform.position.y - goalPos.position.y) <= 5f) //Play with these to see if the distances from goal are accurate
-            {
-                PuzzleDone(success: true);
-            }
-            else
-            {
-                PuzzleDone(success: false);
-            }
+            PuzzleDone(success: true);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if( other.gameObject.tag == Tags.mazeWall )
-        {
+        print("TRIGGERED WITH: " + other.gameObject);
+        if (other.gameObject.tag == Tags.mazeWall)
             PuzzleDone(success: false);
-        }
     }
 
     private void PuzzleDone(bool success)
     {
         if (success) {
-            print("SUCCESS");
+            var doorAnim = door.GetComponent<Animator>();
+            doorAnim.SetBool("OpenDoor", true);
+            raycastingController.CloseMenu(reticle: reticle, hackingMenu: hackingMenu);
+
+            rectTransform.position = initPos; //reset maze
         }
         else
         {
-            print("FAILURE");
             rectTransform.position = initPos; //reset maze
         }
     }

@@ -90,11 +90,7 @@ public class RaycastingController : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Cursor.visible = false;
-                hackingMenu.SetActive(false);
-                reticle.SetActive(true);
-                fpsController.enabled = true;
-                isInHackingMenu = false;
+                CloseMenu(reticle: reticle, hackingMenu: hackingMenu);
                 return;
             }
 
@@ -103,5 +99,14 @@ public class RaycastingController : MonoBehaviour {
             if (hackingMenu != null)
                 hackingMenu.SetActive(true);
         }
+    }
+
+    public void CloseMenu(GameObject reticle, GameObject hackingMenu)
+    {
+        Cursor.visible = false;
+        hackingMenu.SetActive(false);
+        reticle.SetActive(true);
+        fpsController.enabled = true;
+        isInHackingMenu = false;
     }
 }
