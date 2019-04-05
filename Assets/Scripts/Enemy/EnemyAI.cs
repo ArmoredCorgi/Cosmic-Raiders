@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Chasing()
     {
+        nav.isStopped = false;
         Vector3 sightingDeltaPos = enemySight.personalLastSighting - transform.position;
         if( sightingDeltaPos.sqrMagnitude > 4f)
         {
@@ -80,6 +81,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrolling()
     {
+        nav.isStopped = false;
         nav.speed = patrolSpeed;
 
         if(nav.destination == infiltrationManager.resetPosition || nav.remainingDistance < nav.stoppingDistance)
