@@ -1774,6 +1774,46 @@ PrefabInstance:
       propertyPath: mazeBackground
       value: 
       objectReference: {fileID: 276934599}
+    - target: {fileID: 1619630074, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 976499219, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662102993, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957078429, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637966270, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441565701, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 320787627, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392314446, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82526053, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1319693351, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6c511fcf60d8a243a0a42c5e0efcc45, type: 3}
 --- !u!1001 &1969207158
