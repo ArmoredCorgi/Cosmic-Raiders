@@ -7,12 +7,13 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class RaycastingController : MonoBehaviour {
     
     public bool isInHackingMenu;
+    public int currentScreenNum;
     public Canvas pcCanvas;
 
     [SerializeField] List<SecurityCamController> securityCamControllers = new List<SecurityCamController>();
     [SerializeField] readonly float raycastRange = 2.0f;
 
-    GameObject[] SecurityCams;
+    GameObject[] securityCams;
     Camera fpsCam;
     private FirstPersonController fpsController;
 
@@ -30,9 +31,9 @@ public class RaycastingController : MonoBehaviour {
 
     private void SecurityCamSetup()
     {
-        SecurityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
+        securityCams = GameObject.FindGameObjectsWithTag("SecurityCam");
 
-        foreach (GameObject cam in SecurityCams)
+        foreach (GameObject cam in securityCams)
         {
             securityCamControllers.Add(cam.GetComponent<SecurityCamController>());
         }
@@ -52,6 +53,38 @@ public class RaycastingController : MonoBehaviour {
 
             print(hit.transform.tag);
 
+            //Change large screen's feed to selected screen's feed:
+            if( isHit
+                && hit.transform.tag == Tags.screen
+                && securityCamControllers.Count > 0)
+            {
+                string screenName = hit.transform.name;
+                char screenNumChar = screenName[screenName.Length - 1];
+                int screenNum = (int)char.GetNumericValue(screenNumChar);
+
+                if (screenNum <= securityCams.Length)
+                {
+                    var securityCam = securityCams[screenNum - 1];
+                    var cam = securityCam.GetComponentInChildren<Camera>();
+                    var texture = new RenderTexture(1024, 1024, 16);
+                    Material material = new Material(Shader.Find("Standard"));
+
+                    cam.targetTexture = texture;
+                    material.mainTexture = texture;
+                    
+                    var screen = GameObject.Find("Screen" + screenNum);
+                    Renderer screenRenderer = screen.GetComponent<Renderer>();
+                    screenRenderer.material = material;
+
+                    var screenL = GameObject.Find("ScreenL");
+                    Renderer screenRendererL = screenL.GetComponent<Renderer>();
+                    screenRendererL.material = material;
+
+                    currentScreenNum = screenNum;
+                }
+            }
+
+            //Move large screen's camera:
             if ( isHit  
                 && hit.transform.tag == Tags.camFeed 
                 && securityCamControllers.Count > 0 )
@@ -60,15 +93,10 @@ public class RaycastingController : MonoBehaviour {
 
                 Cursor.lockState = CursorLockMode.Locked;
 
-                string feedName = hit.transform.name;
-                char feedNumChar = feedName[feedName.Length - 1];
-
-                int feedNum = (int)char.GetNumericValue(feedNumChar);
-
-                if( feedNum <= securityCamControllers.Count )
+                if( currentScreenNum <= securityCamControllers.Count )
                 {
                     fpsController.enabled = false;
-                    securityCamControllers[feedNum - 1].isCamActive = true;
+                    securityCamControllers[currentScreenNum - 1].isCamActive = true;
                 }
 
                 return;

@@ -37,14 +37,6 @@ public class InfiltrationManager : MonoBehaviour {
         }
     }
 
-    private void Start()
-    {
-        //if (!SceneManager.GetSceneByName("Raider's Hub").isLoaded)
-        //{
-        //    SceneManager.LoadSceneAsync("Raider's Hub", LoadSceneMode.Additive);
-        //}
-    }
-
     private void Update()
     {
         SwitchAlarms();

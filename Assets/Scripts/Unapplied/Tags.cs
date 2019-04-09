@@ -17,4 +17,5 @@ public class Tags : MonoBehaviour
     public const string vrPlayer = "VRPlayer";
     public const string hackingTerminal = "HackingTerminal";
     public const string mazeWall = "MazeWall";
+    public const string screen = "Screen";
 }

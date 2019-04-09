@@ -12,6 +12,7 @@ public class MazeMinigameController : MonoBehaviour
     [SerializeField] private GameObject reticle;
     [SerializeField] private GameObject hackingMenu;
     [SerializeField] private RaycastingController raycastingController;
+    [SerializeField] private RectTransform mazeBackground;
 
     private Vector3 initPos;
     private float dx, dy;
@@ -27,6 +28,8 @@ public class MazeMinigameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mazeBackground.sizeDelta = new Vector2(Screen.width, Screen.height);
+
         if( Input.GetKey(KeyCode.Mouse0) )
         {
             Vector2 clickPos = Input.mousePosition;

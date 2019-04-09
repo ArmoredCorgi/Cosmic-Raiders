@@ -15,6 +15,7 @@ TagManager:
   - VRPlayer
   - HackingTerminal
   - MazeWall
+  - Screen
   layers:
   - Default
   - TransparentFX

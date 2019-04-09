@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class RaidersHubManager : MonoBehaviour {
 
+    [SerializeField] RaycastingController raycastingController;
+
     GameObject[] securityCams;
     List<RenderTexture> camFeeds = new List<RenderTexture>();
 
@@ -39,13 +41,18 @@ public class RaidersHubManager : MonoBehaviour {
             cam.targetTexture = texture;
             material.mainTexture = texture;
 
-            print("Texture: " + texture);
+            var screen = GameObject.Find("Screen" + count);
+            Renderer screenRenderer = screen.GetComponent<Renderer>();
+            screenRenderer.material = material;
 
-            var camFeedMonitor = GameObject.Find("CamFeed" + count);
+            if(count == 1)
+            {
+                var screenL = GameObject.Find("ScreenL");
+                Renderer screenRendererL = screenL.GetComponent<Renderer>();
+                screenRendererL.material = material;
 
-            Renderer monitorRenderer = camFeedMonitor.GetComponent<Renderer>();
-
-            monitorRenderer.material = material;
+                raycastingController.currentScreenNum = count;
+            }
 
             count++;
         }
